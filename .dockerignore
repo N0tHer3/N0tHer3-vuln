@@ -1,0 +1,9 @@
+# Docker build ignore - exclude unnecessary files
+.git
+.gitignore
+*.md
+tmp/
+docker-compose.yml
+start.sh
+vuln_report.md
+tts.txt

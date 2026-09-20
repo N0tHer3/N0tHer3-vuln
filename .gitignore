@@ -1,0 +1,11 @@
+# 运行时产物
+tmp/sessions/
+
+# 上传目录运行时内容（目录由后端自动创建）
+uploads/avatars/*
+
+# 系统文件
+Thumbs.db
+.DS_Store
+desktop.ini
+*.log

@@ -1,0 +1,15 @@
+﻿代码规范V3.0
+
+1. 命名规范
+- 类名：PascalCase
+- 方法名：camelCase
+- 常量：UPPER_SNAKE_CASE
+
+2. 注释规范
+- 所有public方法必须有JSDoc注释
+- 复杂逻辑必须添加行内注释
+
+3. Git提交规范
+- feat: 新功能
+- fix: 修复bug
+- docs: 文档变更

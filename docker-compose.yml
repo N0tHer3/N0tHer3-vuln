@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_PORT=3306
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=tangyuan_oa
+    depends_on:
+      - db
+    networks:
+      - vulnnet
+
+  db:
+    image: mysql:5.7
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tangyuan_oa
+    volumes:
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+    networks:
+      - vulnnet
+    command: --secure-file-priv="" --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+networks:
+  vulnnet:
+    driver: bridge
+
+volumes:
+  db_data:
